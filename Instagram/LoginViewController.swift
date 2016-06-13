@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -17,8 +18,75 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var displayNameTextField: UITextField!
     
     @IBAction func handleLoginButton(sender: AnyObject) {
-    }
+        if let adress = mailAdressTextField.text, let password = passwordTextField.text {
+            //いずれかが未入力ならなにもしない
+            if adress.characters.isEmpty || password.characters.isEmpty {
+                SVProgressHUD.showErrorWithStatus("必須項目を入力してください")
+                return
+            }
+            
+            //処理中を表示
+            SVProgressHUD.show()
+            
+                    FIRAuth.auth()?.signInWithEmail(adress, password: password) {
+                        user, error in
+                        if error != nil {
+                            //エラー表示
+                            
+                            print(error)
+                        } else {
+                            //firebaseからユーザ表示名を取り出し
+                            if let displayName = user?.displayName {
+                                        //NSUserDefaultsに表示名を保存
+                                        self.setDisplayName(displayName)
+                            }
+                                        //画面を閉じる
+                                        self.dismissViewControllerAnimated(true, completion: nil)
+                                    }
+                                }
+                            }
+                        }
+    
+    
     @IBAction func handleCreateAcountButton(sender: AnyObject) {
+        if let adress = mailAdressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
+            //いずれかが未入力ならなにもしない
+            if adress.characters.isEmpty || password.characters.isEmpty || displayName.characters.isEmpty {
+                return
+            }
+            
+            FIRAuth.auth()?.createUserWithEmail(adress, password: password){ //★ここの書き方の意味がわからない
+                user, error in
+                if error != nil {
+                    print(error)
+                } else {
+                    //ユーザ作成ができたらそのままログイン
+                    FIRAuth.auth()?.signInWithEmail(adress, password: password) {
+                        user, error in
+                        if error != nil {
+                            print(error)
+                        } else {
+                            if let user = user {
+                                //firebase に表示名を保存
+                                let request = user.profileChangeRequest()
+                                request.displayName = displayName
+                                request.commitChangesWithCompletion() { error in
+                                    if error != nil{
+                                        print(error)
+                                    } else {
+                                        //NSUserDefaultsに表示名を保存
+                                        self.setDisplayName(displayName)
+                                        
+                                        //画面を閉じる
+                                        self.dismissViewControllerAnimated(true, completion: nil)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     
