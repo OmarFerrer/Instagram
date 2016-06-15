@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class PosData: NSObject {
+class PostData: NSObject {
     var id: String?
     var image: UIImage?
     var imageString: String?
