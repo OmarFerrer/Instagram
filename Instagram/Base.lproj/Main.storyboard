@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -57,21 +58,30 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="0j7-NP-bdh"/>
                                 </constraints>
-                                <state key="normal" title="ライブラリ" image="btn"/>
+                                <state key="normal" title="ライブラリ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLibraryButton:" destination="bHx-KD-bPd" eventType="touchUpInside" id="hc7-d8-u7y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJk-w9-Wtf">
                                 <rect key="frame" x="150" y="130" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ibb-PO-elB"/>
                                 </constraints>
-                                <state key="normal" title="カメラ" image="btn"/>
+                                <state key="normal" title="カメラ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCameraButton:" destination="bHx-KD-bPd" eventType="touchUpInside" id="uCe-5s-1zH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwK-As-fjb">
                                 <rect key="frame" x="150" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="qZm-NT-GHP"/>
                                 </constraints>
-                                <state key="normal" title="キャンセル" image="btn"/>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="bHx-KD-bPd" eventType="touchUpInside" id="ydI-dS-g6E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,8 +250,57 @@
                     <view key="view" contentMode="scaleToFill" id="g1m-P1-mEs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pu0-jz-I6i">
+                                <rect key="frame" x="20" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="E2F-dl-YX4"/>
+                                    <constraint firstAttribute="width" constant="120" id="M6x-jM-rSR"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w71-wi-82F">
+                                <rect key="frame" x="150" y="130" width="430" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giM-OU-Mvv">
+                                <rect key="frame" x="150" y="180" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="rQv-0K-5fO"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="hundlePostButton:" destination="h4f-Pe-WQ1" eventType="touchUpInside" id="rO6-Nq-hQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIh-7y-D7o">
+                                <rect key="frame" x="150" y="230" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="YNV-lZ-Rca"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="hundleCancelButton:" destination="h4f-Pe-WQ1" eventType="touchUpInside" id="Shh-mr-w16"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pu0-jz-I6i" firstAttribute="leading" secondItem="g1m-P1-mEs" secondAttribute="leadingMargin" id="9iN-8x-sI7"/>
+                            <constraint firstItem="giM-OU-Mvv" firstAttribute="top" secondItem="pu0-jz-I6i" secondAttribute="bottom" constant="20" id="JhM-PC-8zJ"/>
+                            <constraint firstItem="giM-OU-Mvv" firstAttribute="centerX" secondItem="g1m-P1-mEs" secondAttribute="centerX" id="LEB-ZX-oPp"/>
+                            <constraint firstItem="OIh-7y-D7o" firstAttribute="top" secondItem="giM-OU-Mvv" secondAttribute="bottom" constant="10" id="WhS-9I-PQc"/>
+                            <constraint firstItem="OIh-7y-D7o" firstAttribute="centerX" secondItem="g1m-P1-mEs" secondAttribute="centerX" id="X6f-iP-CUY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w71-wi-82F" secondAttribute="trailing" id="XBL-k0-6j8"/>
+                            <constraint firstItem="w71-wi-82F" firstAttribute="bottom" secondItem="pu0-jz-I6i" secondAttribute="bottom" id="deA-gJ-at3"/>
+                            <constraint firstItem="w71-wi-82F" firstAttribute="leading" secondItem="pu0-jz-I6i" secondAttribute="trailing" constant="10" id="iIT-m9-x5O"/>
+                            <constraint firstItem="pu0-jz-I6i" firstAttribute="top" secondItem="Oj4-ct-SWG" secondAttribute="bottom" constant="20" id="rIt-dJ-bHG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="pu0-jz-I6i" id="qZh-DK-Ihw"/>
+                        <outlet property="textField" destination="w71-wi-82F" id="MkY-Fe-Jrb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2C-P1-Tg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
