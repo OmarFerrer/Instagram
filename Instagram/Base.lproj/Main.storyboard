@@ -34,8 +34,23 @@
                     <view key="view" contentMode="scaleToFill" id="eRX-1N-5lZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rL9-ue-KYi">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rL9-ue-KYi" secondAttribute="trailing" id="S60-RJ-Ovi"/>
+                            <constraint firstItem="rL9-ue-KYi" firstAttribute="leading" secondItem="eRX-1N-5lZ" secondAttribute="leadingMargin" id="SBF-Qe-osY"/>
+                            <constraint firstItem="rL9-ue-KYi" firstAttribute="top" secondItem="qNy-gE-lHL" secondAttribute="bottom" id="YbA-Un-MEh"/>
+                            <constraint firstItem="AcG-cU-aF1" firstAttribute="top" secondItem="rL9-ue-KYi" secondAttribute="bottom" id="fdL-kB-tDZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rL9-ue-KYi" id="eeV-0p-qKH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoD-LT-oma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
