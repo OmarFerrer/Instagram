@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="762" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="566" height="762"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="566" height="962"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="566" height="761.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="566" height="961.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QJ-M6-bKm">
@@ -45,8 +45,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krS-9e-f1R">
-                        <rect key="frame" x="18" y="633" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krS-9e-f1R">
+                        <rect key="frame" x="18" y="628.5" width="530" height="550"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                 <constraints>
                     <constraint firstItem="krS-9e-f1R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="4qR-Y0-aS9"/>
                     <constraint firstItem="wT1-9K-HHB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5xx-4k-XjD"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="krS-9e-f1R" secondAttribute="bottom" constant="10" id="7Eh-yR-rHV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="krS-9e-f1R" secondAttribute="bottom" priority="999" constant="10" id="7Eh-yR-rHV"/>
                     <constraint firstItem="YnW-F8-24z" firstAttribute="leading" secondItem="wT1-9K-HHB" secondAttribute="trailing" constant="10" id="8xL-LB-bej"/>
                     <constraint firstItem="krS-9e-f1R" firstAttribute="top" secondItem="6QJ-M6-bKm" secondAttribute="bottom" constant="10" id="AyZ-yZ-Ln1"/>
                     <constraint firstItem="6QJ-M6-bKm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CYt-bC-fmK"/>
@@ -90,7 +90,7 @@
                 <outlet property="likeLabel" destination="wT1-9K-HHB" id="xaV-kZ-ThO"/>
                 <outlet property="postImageView" destination="tES-Sy-C51" id="Dlg-C4-U1T"/>
             </connections>
-            <point key="canvasLocation" x="359" y="407"/>
+            <point key="canvasLocation" x="359" y="507"/>
         </tableViewCell>
     </objects>
     <resources>
