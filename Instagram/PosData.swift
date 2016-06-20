@@ -19,6 +19,7 @@ class PostData: NSObject {
     var date: NSDate?
     var likes: [String] = []
     var isLiked: Bool = false
+    var coments: [String] = []
     
     init(snapshot: FIRDataSnapshot, myId: String) {
         id = snapshot.key
