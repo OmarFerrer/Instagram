@@ -15,7 +15,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var commentText: NSLayoutConstraint!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentLabel: UILabel!
     
     var postData: PostData!
     
@@ -36,6 +38,11 @@ class PostTableViewCell: UITableViewCell {
         postImageView.image = postData.image
         captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         
+        //ボタン識別のためのタグ追加
+        likeButton.tag = 1
+        commentButton.tag = 2
+        //ここまで
+        
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
@@ -53,6 +60,25 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
         }
+        
+        
+        //コメントの表示を以下に入れる
+        //コメントの数だけループ
+        print("\(postData.caption) : \(postData.comments.count)")
+        if postData.comments.count != 0 {
+            for i in 0..<postData.comments.count{
+                //コメントをコメントテキストに適用して改行を入れる
+                commentLabel.text = commentLabel.text! + " \n " + postData.comments[i]
+            }
+        }
+
+//        for i in postData.comments {
+//                commentLabel.text = commentLabel.text! + " \n " + postData.comments[i]
+//        }
+        
+        
+        
+        //ここまで
         
         super.layoutSubviews()
     }
