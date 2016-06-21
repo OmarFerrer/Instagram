@@ -9,7 +9,7 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
@@ -21,15 +21,15 @@ class PostTableViewCell: UITableViewCell {
     
     var postData: PostData!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -64,20 +64,15 @@ class PostTableViewCell: UITableViewCell {
         
         //コメントの表示を以下に入れる
         //コメントの数だけループ
-        print("\(postData.caption) : \(postData.comments.count)")
-        if postData.comments.count != 0 {
-            for i in 0..<postData.comments.count{
-                //コメントをコメントテキストに適用して改行を入れる
-                commentLabel.text = commentLabel.text! + " \n " + postData.comments[i]
+        if postData.comments.count > 0 {
+            var commentLabelString: String = ""
+            for comment in postData.comments {
+                commentLabelString = commentLabelString + " \n " + comment
             }
+            commentLabel.text = commentLabelString
+        } else {
+            commentLabel.text = "" //なければ空
         }
-
-//        for i in postData.comments {
-//                commentLabel.text = commentLabel.text! + " \n " + postData.comments[i]
-//        }
-        
-        
-        
         //ここまで
         
         super.layoutSubviews()
