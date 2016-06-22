@@ -137,11 +137,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //セル内ボタンのアクションをソースコードで設定
         cell.likeButton.addTarget(self, action: #selector(self.handleButton), forControlEvents: UIControlEvents.TouchUpInside) //★この記述の意味？
         
-        //コメント投稿ボタンを追加
+        //コメント投稿ボタンのアクションも追加
         cell.commentButton.addTarget(self, action: #selector(self.handleButton), forControlEvents: UIControlEvents.TouchUpInside)
-
         
-
         //UILabelの行数が変わっている可能性があるので再描画
         cell.layoutIfNeeded()
         
@@ -192,12 +190,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             } else {
                 //コメント投稿ボタンの処理
-                print("comment")
-
-                //コメントとそのユーザ表示名を追加
+                print("comment added")
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath!) as! PostTableViewCell
+                let comment = cell.commentText.text
+                
+                                //コメントとそのユーザ表示名を追加
                 let ud = NSUserDefaults.standardUserDefaults()
                 let udName = ud.objectForKey(CommonConst.DisplayNameKey) as! String
-                postData.comments.append(udName + ": test")
+                postData.comments.append(udName + ": " + comment!)
             }
             
             let imageString = postData.imageString
@@ -209,7 +210,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let comments = postData.comments
             
             //辞書を作成してFirebaseに保存
-//            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
+            //            let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
             //コメントを追加
             let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "comments": comments]
             let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
