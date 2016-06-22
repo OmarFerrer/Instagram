@@ -71,7 +71,7 @@ class PostTableViewCell: UITableViewCell {
             }
             commentLabel.text = commentLabelString
         } else {
-            commentLabel.text = "" //なければ空
+            commentLabel.text = "コメントなし" //なければ空
         }
         //ここまで
         

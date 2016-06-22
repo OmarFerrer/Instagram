@@ -192,13 +192,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 //コメント投稿ボタンの処理
                 print("comment added")
                 
-                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath!) as! PostTableViewCell
+                let cell = tableView.cellForRowAtIndexPath(indexPath!) as! PostTableViewCell
                 let comment = cell.commentText.text
                 
                                 //コメントとそのユーザ表示名を追加
                 let ud = NSUserDefaults.standardUserDefaults()
                 let udName = ud.objectForKey(CommonConst.DisplayNameKey) as! String
-                postData.comments.append(udName + ": " + comment!)
+                postData.comments.append(udName + " : " + comment!)
+                
+                //投稿おわったら文字を消す
+                cell.commentText.text = ""
             }
             
             let imageString = postData.imageString
