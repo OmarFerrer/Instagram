@@ -117,7 +117,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 //当該セルのみ再表示
                 let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+//                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                self.tableView.reloadData()
             }
         })
         
